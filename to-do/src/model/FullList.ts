@@ -34,6 +34,10 @@ export default class FullList implements List {
     addItem(itemObj: ListItem): void {
         this._list.push(itemObj)
         this.save()
+        const inputField = document.getElementById("newItem") as HTMLInputElement;
+    if (inputField) {
+        inputField.value = "";
+    }
     }
     removeItem(id: string): void {
         this._list = this._list.filter(item => item.id !== id)
